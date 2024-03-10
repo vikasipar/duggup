@@ -40,24 +40,36 @@
 			</span>
 		</div>
 		<div class="w-[272px] ml-2">
-			<div role="button" tabindex="0" class="text-center flex items-center justify-center cursor-pointer gap-[8px]" on:click={() => options=(!options)} on:keydown={(e)=> {if(e.key === "Enter" || e.key === " "){options=(!options);}}}>
+			<div role="button" tabindex="0" class="text-center z-[100] flex items-center justify-center cursor-pointer gap-[8px]" on:click={() => options=(!options)} on:keydown={(e)=> {if(e.key === "Enter" || e.key === " "){options=(!options);}}}>
 				<img src={profile} alt="user profile" class="w-9 p-[0.5px] border-[0.7px] rounded-full border-[#4d4d4d]">
 				<h3 class="font-[500] text-lg">Krishna Kiran</h3>
 				<img src={down} alt="down arrow icon" class="w-fit">
 			</div>
-			{#if (options)}
-				<div class="absolute z-50 w-[212px] top-[70px] shadow-md h-24 pt-[5px] border rounded right-2">
-					<span class="w-[95%] mx-auto text-center px-1 py-2 rounded-[4px] hover:bg-[#ebf3fa] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
-						<img src={settings} alt="settings icon" class="w-5 opacity-60">
-						Settings
-					</span>
-					<span class="w-[90%] mx-auto text-center px-1 py-2 rounded-[4px] hover:bg-[#ebf3fa] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
-						<img src={logout} alt="logout icon" class="w-[18px] opacity-80">
-						Logout
-					</span>
-				</div>
-			{/if}
 		</div>
 	</nav>
 
 </header>
+{#if (options)}
+	<div class="options absolute z-[100] w-[212px] top-[70px] shadow-md h-24 pt-[5px] border rounded right-2">
+		<span class="w-[95%] mx-auto text-center px-1 py-2 rounded-[4px] hover:bg-[#ebf3fa] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
+			<img src={settings} alt="settings icon" class="w-5 opacity-60">
+			Settings
+		</span>
+		<span class="w-[90%] mx-auto text-center px-1 py-2 rounded-[4px] hover:bg-[#ebf3fa] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
+			<img src={logout} alt="logout icon" class="w-[18px] opacity-80">
+			Logout
+		</span>
+	</div>
+{/if}
+
+
+<style>
+	.options{
+		animation: op1 0.6s;
+	}
+	@keyframes op1{
+		0%{transform: translateY(-55px); opacity: 0;}
+		50%{opacity: 0;}
+		100%{transform: translateY(0); opacity: 1;}
+	}
+</style>

@@ -1,12 +1,12 @@
 <script>
 	import "../app.css";
 	import Header from './Header.svelte';
-	// import './styles.css';
+	import './styles.css';
 </script>
 
-<div class="w-[100vw] mx-0 px-0">
+<div>
 	<Header />
-	<main>
+	<main class="">
 		<slot />
 	</main>
 </div>
