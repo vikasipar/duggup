@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    color: #020817;
+    width: 100%;
+    margin: 0;
+    /* padding: 20px 16px; */
+    /* overflow-x: hidden; */
+}
