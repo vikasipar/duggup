@@ -10,6 +10,7 @@
 	import regrets from '$lib/images/regrets.png';
 	import lessons from '$lib/images/lessons.png';
 	import forward from '$lib/images/forward.png';
+	import {M} from 'svelte-motion'
 </script>
 
 <svelte:head>
@@ -46,8 +47,12 @@
 				<h4 class="text-[9px] md:text-xs text-[#7A9299]">Co-Founder and CEO</h4>
 			</div>
 			<div class="mt-3 flex items-center space-x-4">
-				<a href="https://duggup.com" target="_blank" class="text-[9px] md:text-sm flex gap-1 items-center">My website <img src={visit} alt="visit my website option" class="w-[20%] md:w-fit"></a>
-				<img src={more} alt="more options" class="w-[20%] md:w-fit hover:cursor-pointer">
+				<M.a 
+				initial={{scale: 1}}
+				whileHover={{scale: 1.03}}
+				transition={{duration:0.4}}
+				href="https://duggup.com" target="_blank" class="text-[9px] md:text-sm flex gap-1 items-center">My website <img src={visit} alt="visit my website option" class="w-[20%] md:w-fit"></M.a>
+				<img src={more} alt="more options" class="w-[20%] md:w-fit hover:cursor-pointer hover:animate-bounce hover:rotate-12">
 			</div>
 		</div>
 	</div>	
@@ -60,20 +65,27 @@
 			<p class="text-xs text-[#7A9299]">Dec 2023</p>
 			<img src={progress} alt="progress line" class="w-fit">
 		</div>
-		<div class="flex flex-wrap w-fit justify-center mx-auto mt-4 sm:mt-9 gap-2 sm:gap-4 xl:gap-9">
-			<div class="w-[344px] border rounded-lg">
-				<img src={stevej} alt="steve jobs' thumbnail" class="w-fit">
+		<div class="posts flex flex-wrap sm:overflow-visible w-fit justify-center mx-auto mt-4 sm:mt-9 gap-2 sm:gap-4 xl:gap-9">
+			<M.div 
+			initial={{scale: 1}}
+			whileHover={{scale: 1.03}}
+			transition={{duration:0.4}}
+			class="w-[344px] border rounded-lg cursor-pointer">
+				<img src={stevej} alt="steve jobs' thumbnail" class="w-fit rounded-t-lg">
 				<p class="px-1 sm:px-8 py-1 sm:py-4 text-xs md:text-sm">No amount of technology can convert a bad story into a good story.</p>
-			</div>
-			<div class="w-[344px] border rounded-lg">
+			</M.div>
+			<M.div 
+			initial={{scale: 1}}
+			whileHover={{scale: 1.03}}
+			transition={{duration:0.4}}
+			class="w-[344px] border rounded-lg cursor-pointer">
 				<img src={sama} alt="sam altman's thumbnail" class="w-fit rounded-t-xl">
 				<p class="px-1 sm:px-8 py-1 sm:py-4 text-xs md:textsm">Most people don't have original ideas. Here is how Sam Altman pushes himself to have...</p>
-			</div>
+			</M.div>
 		</div>
 	</div>
 </div>
 
-<!-- <div class="lg:w-[92%] xl:w-[83.3%] 2xl:w-[76.2%] my-0 mx-auto"> -->
 <div class="ml-[3.2rem] sm:ml-[3.3rem] md:ml-[0.1rem] lg:ml-[3.2rem] my-0 mx-auto">
 	<div class="flex gap-2 flex-row items-center">
 		<img src={forward} alt="forward line" class="w-6 block md:hidden">
@@ -97,15 +109,23 @@
 			<p class="text-xs text-[#7A9299]">Dec 2023</p>
 			<img src={progress} alt="progress line" class="w-fit">
 		</div>
-		<div class="flex flex-wrap w-fit justify-center mx-auto sm:mt-9 gap-2 sm:gap-4 xl:gap-9">
-			<div class="w-[344px] border rounded-lg">
+		<div class="flex flex-wrap w-fit sm:overflow-visible justify-center mx-auto sm:mt-9 gap-2 sm:gap-4 xl:gap-9">
+			<M.div 
+			initial={{scale: 1}}
+			whileHover={{scale: 1.03}}
+			transition={{duration:0.4}}
+			class="w-[344px] border rounded-lg cursor-pointer">
 				<img src={lessons} alt="startup lessons' thumbnail" class="w-fit">
 				<p class="px-1 md:px-8 py-1 sm:py-4 text-xs md:textsm">Startup Lesson I am reflecting. Don't build for the "average person".</p>
-			</div>
-			<div class="w-[344px] border rounded-lg">
+			</M.div>
+			<M.div 
+			initial={{scale: 1}}
+			whileHover={{scale: 1.03}}
+			transition={{duration:0.4}}
+			class="w-[344px] border rounded-lg cursor-pointer">
 				<img src={regrets} alt="life regrets' thumbnail" class="w-fit rounded-t-xl">
 				<p class="px-1 sm:px-8 py-1 sm:py-4 text-xs md:textsm">Your biggest regrets at 80 will be acts of omission.</p>
-			</div>
+			</M.div>
 		</div>
 	</div>
 </div>
@@ -129,3 +149,9 @@
 </div>
 
 </div>
+
+<style>
+	div::-webkit-scrollbar {
+  display: none;
+}
+</style>

@@ -10,6 +10,7 @@
 	import settings from '$lib/images/settings.png';
 	import menu from '$lib/images/menu.png';
 	import close from '$lib/images/close.png';
+	import {M} from 'svelte-motion';
 
 	let options = false;
 </script>
@@ -31,20 +32,33 @@
 	</div>
 
 	<nav class="flex max-w-fit items-center text-sm font-[400] text-[#020817]">
-		<div class="hidden md:flex">
-			<span class="w-[110px] text-center px-2 rounded-[4px] border-transparent border border-b-[4px] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
+		<div class="hidden md:flex overflow-hidden">
+			<M.span 
+			initial={{y:1, scale: 1}}
+			whileHover={{y:-1, scale: 1.1}}
+			transition={{duration:0.4}}
+			class="w-[110px] text-center px-2 rounded-[4px] border-transparent border border-b-[4px] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
 				<img src={home} alt="home icon" class="w-fit">
 				Home
-			</span>
-			<span class="w-[110px] text-center px-2 py-2 rounded-[4px] border-transparent border border-b-[4px] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
+			</M.span>
+			<M.span 
+			initial={{y:1, scale: 1}}
+			whileHover={{y:-1, scale: 1.1}}
+			transition={{duration:0.4}}
+			class="w-[110px] text-center px-2 py-2 rounded-[4px] border-transparent border border-b-[4px] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
 				<img src={explore} alt="explore icon" class="w-fit">
 				Explore
-			</span>
-			<span class="w-[110px] text-center px-2 py-2 rounded-[4px] border-transparent border border-b-[4px] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
+			</M.span>
+			<M.span 
+			initial={{y:1, scale: 1}}
+			whileHover={{y:-1, scale: 1.1}}
+			transition={{duration:0.4}}
+			class="w-[110px] text-center px-2 py-2 rounded-[4px] border-transparent border border-b-[4px] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
 				<img src={learn} alt="learn icon" class="w-fit">
 				Learn
-			</span>
-			<span class="max-w-[102px] px-4 rounded-[4px] mx-5 border border-b-[4px] border-[#4D4D4D] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
+			</M.span>
+			<span 
+			class="max-w-[102px] px-4 rounded-[4px] mx-5 border border-b-[4px] border-[#4D4D4D] flex items-center justify-center outline-none gap-2 hover:cursor-pointer">
 				<img src={post} alt="post icon" class="w-fit">
 				Post<span class="w-1"></span>
 			</span>
@@ -54,9 +68,9 @@
 				<img src={profile} alt="user profile" class="w-fit md:w-12 p-[0.5px] border-[0.7px] rounded-full border-[#4d4d4d]">
 				<h3 class="font-[500] text-lg hidden sm:block">Krishna Kiran</h3>
 				{#if (!options)}
-				<img src={down} alt="down arrow icon" class="w-6 hidden md:block">
+				<img src={down} alt="down arrow icon" class="w-6 hidden md:block hover:animate-bounce">
 				{:else}
-				<img src={down} alt="down arrow icon" class="w-6 hidden md:block rotate-180">
+				<img src={down} alt="up arrow icon" class="w-6 hidden md:block rotate-180">
 				{/if}
 			</div>
 		</div>
