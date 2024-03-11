@@ -1,12 +1,19 @@
 <script>
 	import "../app.css";
-	import Header from './Header.svelte';
+	import Intro from "../components/Intro.svelte";
+	import Header from '../components/Header.svelte';
 	import './styles.css';
+	let intro = true;
+	setTimeout(()=>intro=false, 2000);
 </script>
 
+{#if intro}
+<Intro/>
+{:else}
 <div>
 	<Header />
-	<main class="">
+	<main>
 		<slot />
 	</main>
 </div>
+{/if}

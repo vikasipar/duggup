@@ -10,7 +10,9 @@
 	import regrets from '$lib/images/regrets.png';
 	import lessons from '$lib/images/lessons.png';
 	import forward from '$lib/images/forward.png';
-	import {M} from 'svelte-motion'
+	import {M} from 'svelte-motion';
+	import Card from '../components/Card.svelte';
+	import Company from '../components/Company.svelte';
 </script>
 
 <svelte:head>
@@ -38,7 +40,11 @@
 		</div>
 		<div class="w-full sm:w-[70%] mt-2 sm:mt-0 text-justify lg:text-left lg:w-[60%] px-3 sm:px-11 text-xs md:text-sm">
 			<p class="">Co-Founder and CEO at Duggup - Social network for people in tech. Ex-Amazon Head of Engineering. I write hot-takes on building a business, shipping delightful products and accelerating product and career growth.</p>
-			<button class="mt-5 md:mt-7 md:w-[91px] w-[70px] h-[25px] md:h-[36px] px-2 md:px-4 rounded-[4px] border border-b-[4px] border-[#4D4D4D] flex items-center justify-center outline-none gap-2 text-xs md:text-sm hover:cursor-pointer">Followed</button>
+			<M.button 
+			initial={{scale: 0.8}}
+		    animate={{scale: 1}}
+		    transition={{duration:0.9}}
+			class="mt-5 md:mt-7 md:w-[91px] w-[70px] h-[25px] md:h-[36px] px-2 md:px-4 rounded-[4px] border border-b-[4px] border-[#4D4D4D] flex items-center justify-center outline-none gap-2 text-xs md:text-sm hover:cursor-pointer">Followed</M.button>
 		</div>
 		<div class="hidden w-[14%] text-right sm:flex flex-col justify-between">
 			<div class="space-y-[1px]">
@@ -65,36 +71,21 @@
 			<p class="text-xs text-[#7A9299]">Dec 2023</p>
 			<img src={progress} alt="progress line" class="w-fit">
 		</div>
-		<div class="posts flex flex-wrap sm:overflow-visible w-fit justify-center mx-auto mt-4 sm:mt-9 gap-2 sm:gap-4 xl:gap-9">
-			<M.div 
-			initial={{scale: 1}}
-			whileHover={{scale: 1.03}}
-			transition={{duration:0.4}}
-			class="w-[344px] border rounded-lg cursor-pointer">
-				<img src={stevej} alt="steve jobs' thumbnail" class="w-fit rounded-t-lg">
-				<p class="px-1 sm:px-8 py-1 sm:py-4 text-xs md:text-sm">No amount of technology can convert a bad story into a good story.</p>
-			</M.div>
-			<M.div 
-			initial={{scale: 1}}
-			whileHover={{scale: 1.03}}
-			transition={{duration:0.4}}
-			class="w-[344px] border rounded-lg cursor-pointer">
-				<img src={sama} alt="sam altman's thumbnail" class="w-fit rounded-t-xl">
-				<p class="px-1 sm:px-8 py-1 sm:py-4 text-xs md:textsm">Most people don't have original ideas. Here is how Sam Altman pushes himself to have...</p>
-			</M.div>
-		</div>
+		<M.div 
+		initial={{scale: 0.9}}
+		animate={{scale: 1}}
+		transition={{duration:0.9}}
+		class="posts flex flex-wrap sm:overflow-visible w-fit justify-center mx-auto mt-4 sm:mt-9 gap-2 sm:gap-4 xl:gap-9">
+		    <Card img={stevej} paragraph={"No amount of technology can convert a bad story into a good story."}/>
+		    <Card img={sama} paragraph={"Most people don't have original ideas. Here is how Sam Altman pushes himself to have..."}/>
+		</M.div>
 	</div>
 </div>
 
 <div class="ml-[3.2rem] sm:ml-[3.3rem] md:ml-[0.1rem] lg:ml-[3.2rem] my-0 mx-auto">
 	<div class="flex gap-2 flex-row items-center">
 		<img src={forward} alt="forward line" class="w-6 block md:hidden">
-		<div class="flex flex-col w-[22%] sm:w-fit gap-1 md:text-right">
-			<img src={company} alt="company logo" class="w-6 md:w-9 md:ml-auto">
-			<h3 class="text-xs sm:text-sm md:text-base font-semibold md:font-bold">Duggup</h3>
-			<span class="text-[9px] md:text-xs text-[#7A9299]">San Francisco Bay Area</span>
-			<span class="text-[9px] md:text-xs text-[#7A9299]">Joined Nov 2023</span>
-		</div>
+		<Company companyImage={company} companyName={"Duggup"} companyLocation={"San Francisco Bay Area"} companyJoining={"Joined Nov 2023"}/>
 		<img src={forward} alt="forward line" class="w-6 hidden md:block">
 		<div class="text-xs text-[#7A9299] w-fit ml-2 md:ml-14">
 			<h3 class="text-xs sm:text-sm md:text-xl font-semibold md:font-bold">Co-Founder and CEO</h3>
@@ -109,37 +100,21 @@
 			<p class="text-xs text-[#7A9299]">Dec 2023</p>
 			<img src={progress} alt="progress line" class="w-fit">
 		</div>
-		<div class="flex flex-wrap w-fit sm:overflow-visible justify-center mx-auto sm:mt-9 gap-2 sm:gap-4 xl:gap-9">
-			<M.div 
-			initial={{scale: 1}}
-			whileHover={{scale: 1.03}}
-			transition={{duration:0.4}}
-			class="w-[344px] border rounded-lg cursor-pointer">
-				<img src={lessons} alt="startup lessons' thumbnail" class="w-fit">
-				<p class="px-1 md:px-8 py-1 sm:py-4 text-xs md:textsm">Startup Lesson I am reflecting. Don't build for the "average person".</p>
-			</M.div>
-			<M.div 
-			initial={{scale: 1}}
-			whileHover={{scale: 1.03}}
-			transition={{duration:0.4}}
-			class="w-[344px] border rounded-lg cursor-pointer">
-				<img src={regrets} alt="life regrets' thumbnail" class="w-fit rounded-t-xl">
-				<p class="px-1 sm:px-8 py-1 sm:py-4 text-xs md:textsm">Your biggest regrets at 80 will be acts of omission.</p>
-			</M.div>
-		</div>
+		<M.div
+		initial={{scale: 0.9}}
+		animate={{scale: 1}}
+		transition={{duration:0.9}}
+		class="flex flex-wrap w-fit sm:overflow-visible justify-center mx-auto sm:mt-9 gap-2 sm:gap-4 xl:gap-9">
+		    <Card img={lessons} paragraph={"Startup Lesson I am reflecting. Don't build for the average person."}/>
+		    <Card img={regrets} paragraph={"Your biggest regrets at 80 will be acts of omission."}/>
+		</M.div>
 	</div>
 </div>
 
 <div class="ml-[3.2rem] sm:ml-[3.3rem] md:ml-[0.1rem] lg:ml-[3.2rem] my-0 mx-auto">
 	<div class="flex gap-2 flex-row items-center">
 		<img src={forward} alt="forward line" class="w-6 block md:hidden">
-		<div class="flex flex-col w-[22%] sm:w-fit gap-1 md:text-right">
-			<img src={betterup} alt="company logo" class="w-6 md:w-9 md:ml-auto">
-			<h3 class="text-xs sm:text-sm md:text-base font-semibold md:font-bold">BetterUp</h3>
-			<span class="text-[9px] md:text-xs text-[#7A9299]">San Francisco Bay Area</span>
-			<span class="text-[9px] md:text-xs text-[#7A9299]">Joined
-				Sep 2022</span>
-		</div>
+		<Company companyImage={betterup} companyName={"BetterUp"} companyLocation={"San Francisco Bay Area"} companyJoining={"Joined Sep 2022"}/>
 		<img src={forward} alt="forward line" class="w-6 hidden md:block">
 		<div class="text-xs text-[#7A9299] w-fit ml-2 sm:ml-14">
 			<h3 class="text-xs sm:text-sm md:text-xl font-semibold md:font-bold">VP Engineering</h3>
