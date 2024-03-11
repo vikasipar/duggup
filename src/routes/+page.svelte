@@ -30,8 +30,8 @@
 				<h2 class="text-xs sm:text-sm md:text-base font-semibold md:font-bold">Duggup</h2>
 				<h4 class="text-[9px] md:text-xs text-[#7A9299]">Co-Founder and CEO</h4>
 			</div>
-			<div class="mt-3 flex items-center space-x-4">
-				<a href="https://duggup.com" target="_blank" class="text-[9px] md:text-sm flex gap-1 items-center">My website <img src={visit} alt="visit my website option" class="w-[11%] sm:w-[20%] md:w-fit"></a>
+			<div class="w-[65%] ml-auto sm:w-[99%] mt-1 sm:mt-3 flex items-center space-x-4">
+				<a href="https://duggup.com" target="_blank" class="text-[8px] md:text-sm flex gap-1 items-center">My website <img src={visit} alt="visit my website option" class="w-[11%] sm:w-[20%] md:w-fit"></a>
 				<img src={more} alt="more options" class="w-[12%] sm:w-[20%] md:w-fit hover:cursor-pointer">
 			</div>
 		</div>

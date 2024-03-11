@@ -25,7 +25,7 @@
 
 	<div class="text-xl w-fit">
 		<a href="/" class="flex justify-start gap-2 w-fit">
-			<img src={logo} alt="Duggup Logo" class="w-fit md:w-11"/>
+			<img src={logo} alt="Duggup Logo" class="w-8 md:w-11"/>
 			<h2 class="text-[#020817] font-semibold">duggup</h2>
 		</a>
 	</div>
